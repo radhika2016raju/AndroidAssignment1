@@ -12,10 +12,10 @@
 
 
         <activity
-            android:name=".AddItemActivity"
+            android:name=".AddUserDetailsActivity"
             android:exported="true"/>
         <activity
-            android:name=".AddActivity"
+            android:name=".ShowListActivity"
             android:exported="true"/>
         <activity
             android:name=".LoginActivity"
