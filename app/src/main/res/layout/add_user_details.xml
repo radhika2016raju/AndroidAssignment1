@@ -112,7 +112,7 @@
 
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_add"
+                android:id="@+id/btn_add_user"
                 android:layout_width="@dimen/width300"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

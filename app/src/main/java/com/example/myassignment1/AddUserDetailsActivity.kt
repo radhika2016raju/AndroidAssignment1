@@ -7,50 +7,51 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myassignmenttask.UserDetails
 
-class AddItemActivity : AppCompatActivity() {
+class AddUserDetailsActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.edit_item)
+        setContentView(R.layout.add_user_details)
 
 
         val userName: EditText = findViewById(R.id.et_name)
-        val userid: EditText = findViewById(R.id.et_id)
+        val userId: EditText = findViewById(R.id.et_id)
         val emailId: EditText = findViewById(R.id.et_email)
-        val addButton: Button = findViewById(R.id.btn_add)
+        val addButton: Button = findViewById(R.id.btn_add_user)
 
 
         addButton.setOnClickListener {
 
 
             val names = userName.text.toString()
-            val id = userid.text.toString()
+            val id = userId.text.toString()
             val email = emailId.text.toString()
 
             val valid = true
 
             if (valid) {
-                if (!validateUsername(names)) {
+                if (!EmptyValidation(names)) {
                     userName.error = getString(R.string.Required)
                     userName.requestFocus()
                 }
 
-                if (!validateUserId(id)) {
-                    userid.error = getString(R.string.Required)
+                if (!EmptyValidation(id)) {
+                    userId.error = getString(R.string.Required)
 
-                    userid.requestFocus()
+                    userId.requestFocus()
 
                 }
-                if (!validateEmail(email)) {
+                if (!EmptyValidation(email)) {
                     emailId.error = getString(R.string.Required)
                     emailId.requestFocus()
 
                 } else {
 
-                    userList.add(UserDetails("UserId: $id", "UserName:$names", "email:$email"))
-                    val intent = Intent(this, AddActivity::class.java)
+                    userList.add(UserDetails(id, names, email))
+                    val intent = Intent(this, ShowListActivity::class.java)
                     startActivity(intent)
+                    finish()
                 }
 
             }

@@ -9,36 +9,21 @@ private val emailPattern by lazy {
 }
 
 
-fun validateUsername(Username: String): Boolean {
-    if (TextUtils.isEmpty(Username)) {
+fun EmptyValidation(str: String): Boolean {
+    if (TextUtils.isEmpty(str)) {
         return false
     }
     return true
 }
 
-fun validatePassword(Password: String): Boolean {
-    if (TextUtils.isEmpty(Password)) {
-        return false
-    }
-    return true
-}
 
 fun validateEmail(emailId: String): Boolean {
-    if (TextUtils.isEmpty(emailId))  {
-        return false
-    }
     if (emailId.matches(emailPattern.toRegex())) {
         return true
     }
     return false
 }
 
-fun validateUserId(Userid: String): Boolean {
-    if (TextUtils.isEmpty(Userid)) {
-        return false
-    }
-    return true
-}
 
 
 

@@ -9,26 +9,20 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class AddActivity : AppCompatActivity() {
+class ShowListActivity : AppCompatActivity() {
     private lateinit var addsBtn: FloatingActionButton
     private lateinit var recv: RecyclerView
-
-
-    // private latent var userList:ArrayList<UserDetails>
     private lateinit var recyclerAdapter: RecyclerAdapter
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_adduser)
-
-        // userList = ArrayList()
-
+        setContentView(R.layout.show_user_list)
         recv = findViewById(R.id.mRecycler)
         addsBtn = findViewById(R.id.addingBtn)
 
         addsBtn.setOnClickListener {
-            val intent = Intent(this, AddItemActivity::class.java)
+            val intent = Intent(this, AddUserDetailsActivity::class.java)
             startActivity(intent)
         }
 

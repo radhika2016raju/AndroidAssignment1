@@ -7,9 +7,21 @@
     <string name="show_list">Show List</string>
     <string name="password">Password</string>
     <string name="user_id">User Id</string>
+    <string name="user_id2">User Id:</string>
     <string name="user_name">User Name</string>
+    <string name="user_name2">User Name:</string>
     <string name="email">Email</string>
+    <string name="email2">Email:</string>
     <string name="add">Add</string>
     <string name="add_user_details">Add User Details</string>
-    <string name="Required">required</string>
+    <string name="please_enter_user_name">Please Enter Username</string>
+    <string name="please_enter_valid_user_name">Please Enter Valid Username</string>
+    <string name="please_enter_valid_password">Please Enter Valid Password</string>
+
+    <string name="please_enter_user_password">Please Enter Password</string>
+    <string name="please_enter_user_id">Please Enter UserID</string>
+    <string name="please_enter_user_email">Please Enter User Email</string>
+    <string name="Required">reuired</string>
+
+
 </resources>

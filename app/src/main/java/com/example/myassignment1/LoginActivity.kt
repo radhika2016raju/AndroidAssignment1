@@ -9,38 +9,38 @@ import android.widget.Toast
 
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var etusername: EditText
-    private lateinit var etpassword: EditText
-    private lateinit var btnlogin: Button
+    private lateinit var etUsername: EditText
+    private lateinit var etPassword: EditText
+    private lateinit var btnLogin: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        btnlogin = findViewById(R.id.btn_login)
-        etusername = findViewById(R.id.et_username)
-        etpassword = findViewById(R.id.et_password)
+        btnLogin = findViewById(R.id.btn_login)
+        etUsername = findViewById(R.id.et_user_name)
+        etPassword = findViewById(R.id.et_password)
 
-        btnlogin.setOnClickListener {
-            val username = etusername.text.toString()
-            val password = etpassword.text.toString()
+        btnLogin.setOnClickListener {
+            val username = etUsername.text.toString()
+            val password = etPassword.text.toString()
 
 
 
             if (username == "" || password == "") {
-                if (!validateUsername(username)) {
-                    etusername.error = getString(R.string.Required)
-                    etusername.requestFocus()
+                if (!EmptyValidation(username)) {
+                    etUsername.error = getString(R.string.Required)
+                    etUsername.requestFocus()
                 }
 
-                if (!validatePassword(password)) {
-                    etpassword.error = getString(R.string.Required)
-                    etpassword.requestFocus()
+                if (!EmptyValidation(password)) {
+                    etPassword.error = getString(R.string.Required)
+                    etPassword.requestFocus()
                 }
             } else {
 
                 if (username == USER_NAME && password == PASSWORD) {
-                    val intent = Intent(this, AddItemActivity::class.java)
+                    val intent = Intent(this,ShowListActivity::class.java)
                     startActivity(intent)
                     finish()
                 } else {
