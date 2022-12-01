@@ -26,22 +26,30 @@ class LoginActivity : AppCompatActivity() {
             val username = etUsername.text.toString()
             val password = etPassword.text.toString()
 
-            if (!EmptyValidation(username)) {
+            if (!emptyValidation(username)) {
                 etUsername.error = getString(R.string.please_enter_username)
                 etUsername.requestFocus()
             } else if (username != USER_NAME) {
 
-                Toast.makeText(this, getString(R.string.please_enter_valid_username), Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    getString(R.string.please_enter_valid_username),
+                    Toast.LENGTH_SHORT
+                ).show()
 
             }
 
 
-            if (!EmptyValidation(PASSWORD)) {
+            if (!emptyValidation(PASSWORD)) {
                 etPassword.error = getString(R.string.please_enter_password)
                 etPassword.requestFocus()
             } else if (password != PASSWORD) {
 
-                Toast.makeText(this, getString(R.string.please_enter_valid_password), Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    getString(R.string.please_enter_valid_password),
+                    Toast.LENGTH_SHORT
+                ).show()
 
 
             }
