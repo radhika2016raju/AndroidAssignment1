@@ -24,6 +24,8 @@ class ShowListActivity : AppCompatActivity() {
         addsBtn.setOnClickListener {
             val intent = Intent(this, AddUserDetailsActivity::class.java)
             startActivity(intent)
+          //  Toast.makeText(this, getString(R.string.adding_user_information_success), Toast.LENGTH_SHORT).show()
+
         }
 
         recyclerAdapter = RecyclerAdapter(this, userList)
@@ -32,7 +34,6 @@ class ShowListActivity : AppCompatActivity() {
         recv.adapter = recyclerAdapter
         recyclerAdapter.notifyDataSetChanged()
 
-        Toast.makeText(this, getString(R.string.adding_user_information_success), Toast.LENGTH_SHORT).show()
 
     }
 }
