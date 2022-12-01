@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myassignmenttask.UserDetails
 
@@ -51,7 +52,10 @@ class AddUserDetailsActivity : AppCompatActivity() {
                     userList.add(UserDetails(id, names, email))
                     val intent = Intent(this, ShowListActivity::class.java)
                     startActivity(intent)
+                    Toast.makeText(this, getString(R.string.adding_user_information_success), Toast.LENGTH_SHORT).show()
+
                     finish()
+
                 }
 
             }

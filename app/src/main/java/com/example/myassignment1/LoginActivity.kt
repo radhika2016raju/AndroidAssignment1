@@ -13,6 +13,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var etPassword: EditText
     private lateinit var btnLogin: Button
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -25,33 +26,40 @@ class LoginActivity : AppCompatActivity() {
             val username = etUsername.text.toString()
             val password = etPassword.text.toString()
 
+            if (!EmptyValidation(username)) {
+                etUsername.error = getString(R.string.please_enter_username)
+                etUsername.requestFocus()
+            } else if (username != USER_NAME) {
 
+                Toast.makeText(this, getString(R.string.please_enter_valid_username), Toast.LENGTH_SHORT).show()
 
-            if (username == "" || password == "") {
-                if (!EmptyValidation(username)) {
-                    etUsername.error = getString(R.string.Required)
-                    etUsername.requestFocus()
-                }
-
-                if (!EmptyValidation(password)) {
-                    etPassword.error = getString(R.string.Required)
-                    etPassword.requestFocus()
-                }
-            } else {
-
-                if (username == USER_NAME && password == PASSWORD) {
-                    val intent = Intent(this,ShowListActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                } else {
-
-                    Toast.makeText(this, getString(R.string.entered_username_and_password_is_wrong), Toast.LENGTH_SHORT).show()
-
-                }
             }
+
+
+            if (!EmptyValidation(PASSWORD)) {
+                etPassword.error = getString(R.string.please_enter_password)
+                etPassword.requestFocus()
+            } else if (password != PASSWORD) {
+
+                Toast.makeText(this, getString(R.string.please_enter_valid_password), Toast.LENGTH_SHORT).show()
+
+
+            }
+            if (username == USER_NAME && password == PASSWORD) {
+                val intent = Intent(this, ShowListActivity::class.java)
+                startActivity(intent)
+                Toast.makeText(this, getString(R.string.login_successfully), Toast.LENGTH_SHORT)
+                    .show()
+                finish()
+            }
+
         }
     }
 }
+
+
+
+
 
 
 
