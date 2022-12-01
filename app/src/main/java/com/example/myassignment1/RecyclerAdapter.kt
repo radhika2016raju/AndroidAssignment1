@@ -29,7 +29,7 @@ class RecyclerAdapter(val context: Context, val userList: ArrayList<UserDetails>
     override fun onBindViewHolder(holder:ViewHolder, position: Int) {
         val newList = userList[position]
         holder.userName.text = newList.UserName
-        holder.userId.text = newList.Userid
+        holder.userId.text = newList.UserId
         holder.emailId.text = newList.emailId
     }
 
