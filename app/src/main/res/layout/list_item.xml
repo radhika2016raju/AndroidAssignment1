@@ -86,7 +86,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tv_emailid"
+                android:id="@+id/tv_email_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin10"

@@ -25,6 +25,7 @@ class ShowListActivity : AppCompatActivity() {
             val intent = Intent(this, AddUserDetailsActivity::class.java)
             startActivity(intent)
 
+
         }
 
         recyclerAdapter = RecyclerAdapter(this, userList)

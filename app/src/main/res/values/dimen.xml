@@ -16,7 +16,6 @@
     <dimen name="margin10">10dp</dimen>
     <dimen name="margin20">20dp</dimen>
     <dimen name="margin50">50dp</dimen>
-
     <dimen name="width300">300dp</dimen>
     <dimen name="margin5">5dp</dimen>
     <dimen name="height300">300dp</dimen>

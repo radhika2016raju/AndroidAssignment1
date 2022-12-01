@@ -33,18 +33,18 @@ class AddUserDetailsActivity : AppCompatActivity() {
 
             if (valid) {
                 if (!emptyValidation(names)) {
-                    userName.error = getString(R.string.Required)
+                    userName.error = getString(R.string.please_enter_user_name)
                     userName.requestFocus()
                 }
 
                 if (!emptyValidation(id)) {
-                    userId.error = getString(R.string.Required)
+                    userId.error = getString(R.string.please_enter_user_id)
 
                     userId.requestFocus()
 
                 }
                 if (!emptyValidation(email)) {
-                    emailId.error = getString(R.string.Required)
+                    emailId.error = getString(R.string.please_enter_user_email)
                     emailId.requestFocus()
 
                 } else {
@@ -52,13 +52,8 @@ class AddUserDetailsActivity : AppCompatActivity() {
                     userList.add(UserDetails(id, names, email))
                     val intent = Intent(this, ShowListActivity::class.java)
                     startActivity(intent)
-                    Toast.makeText(
-                        this,
-                        getString(R.string.adding_user_information_success),
-                        Toast.LENGTH_SHORT
-                    ).show()
-
-                    finish()
+                    Toast.makeText(this, getString(R.string.adding_user_information_success), Toast.LENGTH_SHORT).show()
+                     finish()
 
                 }
 
