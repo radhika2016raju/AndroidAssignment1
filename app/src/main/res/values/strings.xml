@@ -22,6 +22,8 @@
     <string name="please_enter_user_id">Please Enter UserID</string>
     <string name="please_enter_user_email">Please Enter User Email</string>
     <string name="Required">reuired</string>
+    <string name="entered_username_and_password_is_wrong">Entered UserName and Password is Wrong</string>
+    <string name="adding_user_information_success">Adding User Information Success</string>
 
 
 </resources>

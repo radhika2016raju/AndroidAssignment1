@@ -45,7 +45,7 @@ class LoginActivity : AppCompatActivity() {
                     finish()
                 } else {
 
-                    Toast.makeText(this, "Entered UserName and Password is Wrong", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.entered_username_and_password_is_wrong), Toast.LENGTH_SHORT).show()
 
                 }
             }
