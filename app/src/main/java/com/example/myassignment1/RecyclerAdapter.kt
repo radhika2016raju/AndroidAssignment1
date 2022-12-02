@@ -12,6 +12,7 @@ import com.example.myassignmenttask.UserDetails
 class RecyclerAdapter(val context: Context, private val userList: ArrayList<UserDetails>) :
     RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
     inner class ViewHolder(val v: View) : RecyclerView.ViewHolder(v) {
+
         var userName: TextView
         var userId: TextView
         var emailId: TextView

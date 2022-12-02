@@ -24,13 +24,11 @@ class AddUserDetailsActivity : AppCompatActivity() {
 
         addButton.setOnClickListener {
 
-
             val names = userName.text.toString()
             val id = userId.text.toString()
             val email = emailId.text.toString()
 
             val valid = true
-
             if (valid) {
                 if (!emptyValidation(names)) {
                     userName.error = getString(R.string.please_enter_user_name)
@@ -39,7 +37,6 @@ class AddUserDetailsActivity : AppCompatActivity() {
 
                 if (!emptyValidation(id)) {
                     userId.error = getString(R.string.please_enter_user_id)
-
                     userId.requestFocus()
 
                 }
