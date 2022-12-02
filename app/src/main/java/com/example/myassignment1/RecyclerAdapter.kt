@@ -9,9 +9,10 @@ import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myassignmenttask.UserDetails
 
-class RecyclerAdapter(val context: Context, val userList: ArrayList<UserDetails>) :
+class RecyclerAdapter(val context: Context, private val userList: ArrayList<UserDetails>) :
     RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
     inner class ViewHolder(val v: View) : RecyclerView.ViewHolder(v) {
+
         var userName: TextView
         var userId: TextView
         var emailId: TextView
@@ -20,16 +21,16 @@ class RecyclerAdapter(val context: Context, val userList: ArrayList<UserDetails>
 
             userName = v.findViewById(R.id.tv_UserName)
             userId = v.findViewById(R.id.tv_id)
-            emailId = v.findViewById(R.id.tv_emailid)
+            emailId = v.findViewById(R.id.tv_email_id)
 
 
         }
     }
 
-    override fun onBindViewHolder(holder:ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val newList = userList[position]
-        holder.userName.text = newList.UserName
-        holder.userId.text = newList.Userid
+        holder.userName.text = newList.userName
+        holder.userId.text = newList.userId
         holder.emailId.text = newList.emailId
     }
 

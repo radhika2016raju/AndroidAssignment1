@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/list_card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -22,7 +21,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/margin15"
+                android:layout_marginStart="@dimen/margin15"
                 android:layout_marginTop="@dimen/margin15"
                 android:ellipsize="end"
                 android:gravity="fill"
@@ -34,8 +33,8 @@
                 android:id="@+id/tv_id"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin10"
                 android:layout_marginTop="@dimen/margin15"
-                android:layout_marginLeft="@dimen/margin10"
                 android:ellipsize="end"
                 android:gravity="fill"
                 android:text="@string/user_id"
@@ -43,61 +42,62 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="402dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="402dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin15"
-            android:ellipsize="end"
-            android:gravity="fill"
-            android:text="@string/user_name2"
-            android:textSize="@dimen/text_size"
-            android:textStyle="bold" />
-        <TextView
-            android:id="@+id/tv_UserName"
-            android:layout_width="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin15"
+                android:ellipsize="end"
+                android:gravity="fill"
+                android:text="@string/user_name2"
+                android:textSize="@dimen/text_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_UserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin10"
+                android:ellipsize="end"
+                android:gravity="fill"
+                android:text="@string/user_name2"
+                android:textSize="@dimen/text_size"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="402dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin10"
-            android:ellipsize="end"
-            android:gravity="fill"
-            android:text="@string/user_name2"
-            android:textSize="@dimen/text_size"
-            android:textStyle="bold" />
-    </LinearLayout>
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin15"
+                android:ellipsize="end"
+                android:gravity="fill"
+                android:text="@string/email2"
+                android:textSize="@dimen/text_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_email_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin10"
+                android:ellipsize="end"
+                android:gravity="fill"
+                android:text="@string/email2"
+                android:textSize="@dimen/text_size"
+                android:textStyle="bold" />
 
 
-    <LinearLayout
-        android:layout_width="402dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin15"
-            android:ellipsize="end"
-            android:gravity="fill"
-            android:text="@string/email2"
-            android:textSize="@dimen/text_size"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/tv_emailid"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/margin10"
-            android:ellipsize="end"
-            android:gravity="fill"
-            android:text="@string/email2"
-            android:textSize="@dimen/text_size"
-            android:textStyle="bold" />
-
-
-
-    </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
 

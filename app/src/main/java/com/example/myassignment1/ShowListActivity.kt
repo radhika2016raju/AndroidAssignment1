@@ -18,13 +18,15 @@ class ShowListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.show_user_list)
+
         recv = findViewById(R.id.mRecycler)
         addsBtn = findViewById(R.id.addingBtn)
 
         addsBtn.setOnClickListener {
+
             val intent = Intent(this, AddUserDetailsActivity::class.java)
             startActivity(intent)
-          //  Toast.makeText(this, getString(R.string.adding_user_information_success), Toast.LENGTH_SHORT).show()
+
 
         }
 
