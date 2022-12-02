@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myassignmenttask.UserDetails
 
@@ -23,27 +24,24 @@ class AddUserDetailsActivity : AppCompatActivity() {
 
         addButton.setOnClickListener {
 
-
             val names = userName.text.toString()
             val id = userId.text.toString()
             val email = emailId.text.toString()
 
             val valid = true
-
             if (valid) {
-                if (!EmptyValidation(names)) {
-                    userName.error = getString(R.string.Required)
+                if (!emptyValidation(names)) {
+                    userName.error = getString(R.string.please_enter_user_name)
                     userName.requestFocus()
                 }
 
-                if (!EmptyValidation(id)) {
-                    userId.error = getString(R.string.Required)
-
+                if (!emptyValidation(id)) {
+                    userId.error = getString(R.string.please_enter_user_id)
                     userId.requestFocus()
 
                 }
-                if (!EmptyValidation(email)) {
-                    emailId.error = getString(R.string.Required)
+                if (!emptyValidation(email)) {
+                    emailId.error = getString(R.string.please_enter_user_email)
                     emailId.requestFocus()
 
                 } else {
@@ -51,7 +49,9 @@ class AddUserDetailsActivity : AppCompatActivity() {
                     userList.add(UserDetails(id, names, email))
                     val intent = Intent(this, ShowListActivity::class.java)
                     startActivity(intent)
-                    finish()
+                    Toast.makeText(this, getString(R.string.adding_user_information_success), Toast.LENGTH_SHORT).show()
+                     finish()
+
                 }
 
             }
