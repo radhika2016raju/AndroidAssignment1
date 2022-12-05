@@ -1,9 +1,8 @@
 package com.example.myassignment1
 
-import android.annotation.SuppressLint
+
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -14,7 +13,6 @@ class ShowListActivity : AppCompatActivity() {
     private lateinit var recv: RecyclerView
     private lateinit var recyclerAdapter: RecyclerAdapter
 
-    @SuppressLint("NotifyDataSetChanged")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.show_user_list)
@@ -25,18 +23,21 @@ class ShowListActivity : AppCompatActivity() {
         addsBtn.setOnClickListener {
 
             val intent = Intent(this, AddUserDetailsActivity::class.java)
-            startActivity(intent)
-
+            startActivityForResult(intent, 100)
 
         }
 
         recyclerAdapter = RecyclerAdapter(this, userList)
-
         recv.layoutManager = LinearLayoutManager(this)
         recv.adapter = recyclerAdapter
-        recyclerAdapter.notifyDataSetChanged()
 
+    }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 100) {
+            recyclerAdapter.notifyDataSetChanged()
+        }
     }
 }
 
