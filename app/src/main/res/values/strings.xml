@@ -27,6 +27,7 @@
     <string name="please_enter_valid_username">Please Enter Valid Username</string>
     <string name="please_enter_password">Please Enter Password</string>
     <string name="login_successfully">Login Successfully</string>
+    <string name="please_enter_valid_email_id">Please Enter Valid EmailId</string>
 
 
 </resources>

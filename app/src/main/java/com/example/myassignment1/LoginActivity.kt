@@ -3,6 +3,7 @@ package com.example.myassignment1
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -26,34 +27,35 @@ class LoginActivity : AppCompatActivity() {
             val username = etUsername.text.toString()
             val password = etPassword.text.toString()
 
-            if (!emptyValidation(username)) {
+            var isValidLoginCreds: Boolean = true
+
+            if (TextUtils.isEmpty(username)) {
                 etUsername.error = getString(R.string.please_enter_username)
                 etUsername.requestFocus()
+                isValidLoginCreds = false
             } else if (username != USER_NAME) {
-
-                Toast.makeText(
-                    this,
-                    getString(R.string.please_enter_valid_username),
-                    Toast.LENGTH_SHORT
-                ).show()
+                etUsername.error = getString(R.string.please_enter_valid_username)
+                etUsername.requestFocus()
+                isValidLoginCreds = false
+            } else {
+                etUsername.error = null
 
             }
 
-
-            if (!emptyValidation(PASSWORD)) {
+            if (TextUtils.isEmpty(password)) {
                 etPassword.error = getString(R.string.please_enter_password)
                 etPassword.requestFocus()
+                isValidLoginCreds = false
             } else if (password != PASSWORD) {
-
-                Toast.makeText(
-                    this,
-                    getString(R.string.please_enter_valid_password),
-                    Toast.LENGTH_SHORT
-                ).show()
-
+                etPassword.error = getString(R.string.please_enter_valid_password)
+                etPassword.requestFocus()
+                isValidLoginCreds = false
+            } else {
+                etPassword.error = null
 
             }
-            if (username == USER_NAME && password == PASSWORD) {
+
+            if (isValidLoginCreds) {
                 val intent = Intent(this, ShowListActivity::class.java)
                 startActivity(intent)
                 Toast.makeText(this, getString(R.string.login_successfully), Toast.LENGTH_SHORT)
@@ -64,6 +66,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 }
+
 
 
 

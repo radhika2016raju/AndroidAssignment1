@@ -28,35 +28,48 @@ class AddUserDetailsActivity : AppCompatActivity() {
             val id = userId.text.toString()
             val email = emailId.text.toString()
 
-            val valid = true
-            if (valid) {
-                if (!emptyValidation(names)) {
-                    userName.error = getString(R.string.please_enter_user_name)
-                    userName.requestFocus()
-                }
+            var isValid: Boolean = true
+            if (!emptyValidation(names)) {
+                userName.error = getString(R.string.please_enter_user_name)
+                userName.requestFocus()
+                isValid = false
+            }
 
-                if (!emptyValidation(id)) {
-                    userId.error = getString(R.string.please_enter_user_id)
-                    userId.requestFocus()
+            if (!emptyValidation(id)) {
+                userId.error = getString(R.string.please_enter_user_id)
+                userId.requestFocus()
+                isValid = false
+            }
 
-                }
-                if (!emptyValidation(email)) {
-                    emailId.error = getString(R.string.please_enter_user_email)
-                    emailId.requestFocus()
 
-                } else {
-
-                    userList.add(UserDetails(id, names, email))
-                    val intent = Intent(this, ShowListActivity::class.java)
-                    startActivity(intent)
-                    Toast.makeText(this, getString(R.string.adding_user_information_success), Toast.LENGTH_SHORT).show()
-                     finish()
-
-                }
+            if (!emptyValidation(email)) {
+                emailId.error = getString(R.string.please_enter_user_email)
+                emailId.requestFocus()
+                isValid = false
+            }
+            if(!validateEmail(email)){
+                emailId.error = getString(R.string.please_enter_valid_email_id)
+                emailId.requestFocus()
+                isValid = false
 
             }
+
+            if (isValid) {
+                userList.add(UserDetails(id, names, email))
+                Toast.makeText(
+                    this,
+                    getString(R.string.adding_user_information_success),
+                    Toast.LENGTH_SHORT
+                ).show()
+                setResult(100)
+                finish()
+
+            }
+
         }
     }
+
 }
+
 
 
