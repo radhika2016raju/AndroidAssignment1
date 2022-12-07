@@ -9,7 +9,7 @@ import android.widget.EditText
 import android.widget.Toast
 
 class LoginActivity : AppCompatActivity() {
-
+    private lateinit var preferenceManager: PreferenceManager
     private lateinit var etUsername: EditText
     private lateinit var etPassword: EditText
     private lateinit var btnLogin: Button
@@ -18,10 +18,31 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        init()
+        checkLogin()
+        onClick()
+    }
+
+    private fun init() {
+        preferenceManager = PreferenceManager(this)
 
         btnLogin = findViewById(R.id.btn_login)
         etUsername = findViewById(R.id.et_user_name)
         etPassword = findViewById(R.id.et_password)
+    }
+
+    private fun checkLogin() {
+        if (preferenceManager.isLogin()) {
+            val intent = Intent(this, ShowListActivity::class.java)
+            startActivity(intent)
+            Toast.makeText(this, getString(R.string.login_successfully), Toast.LENGTH_SHORT)
+                .show()
+            finish()
+
+        }
+    }
+
+    fun onClick() {
 
         btnLogin.setOnClickListener {
             val username = etUsername.text.toString()
@@ -56,6 +77,8 @@ class LoginActivity : AppCompatActivity() {
             }
 
             if (isValidLoginCreds) {
+                preferenceManager.setLogin(true)
+                preferenceManager.setUsername(username)
                 val intent = Intent(this, ShowListActivity::class.java)
                 startActivity(intent)
                 Toast.makeText(this, getString(R.string.login_successfully), Toast.LENGTH_SHORT)
@@ -66,6 +89,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 }
+
 
 
 

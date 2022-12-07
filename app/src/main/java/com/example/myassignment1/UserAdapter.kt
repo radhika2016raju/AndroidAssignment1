@@ -27,7 +27,7 @@ class RecyclerAdapter(val context: Context, private val userList: ArrayList<User
         }
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: UserListViewHolder, position: Int) {
         val newList = userList[position]
         holder.userName.text = newList.userName
         holder.userId.text = newList.userId
@@ -38,10 +38,10 @@ class RecyclerAdapter(val context: Context, private val userList: ArrayList<User
         return userList.size
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserListViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val v = inflater.inflate(R.layout.list_item, parent, false)
-        return ViewHolder(v)
+        return UserListViewHolder(v)
 
     }
 }

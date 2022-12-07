@@ -28,6 +28,9 @@
     <string name="please_enter_password">Please Enter Password</string>
     <string name="login_successfully">Login Successfully</string>
     <string name="please_enter_valid_email_id">Please Enter Valid EmailId</string>
+    <string name="do_you_really_want_to_logout">Do you really want to Logout?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 
 
 </resources>
