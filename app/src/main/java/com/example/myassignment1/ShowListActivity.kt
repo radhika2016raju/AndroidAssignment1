@@ -24,14 +24,14 @@ class ShowListActivity : AppCompatActivity() {
 
     private lateinit var preferenceManager: PreferenceManager
     private lateinit var addsBtn: FloatingActionButton
-    lateinit var userList1: ArrayList<UserDetails>
+   // lateinit var userList1: ArrayList<UserDetails>
     private lateinit var recv: RecyclerView
     private lateinit var recyclerAdapter: UserAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.show_user_list)
-        userList1 = ArrayList<UserDetails>()
+        userList = ArrayList<UserDetails>()
         init()
         checkLogin()
         loadData()
@@ -41,7 +41,7 @@ class ShowListActivity : AppCompatActivity() {
         preferenceManager = PreferenceManager(this)
         recv = findViewById(R.id.mRecycler)
         addsBtn = findViewById(R.id.addingBtn)
-        recyclerAdapter = UserAdapter()
+        recyclerAdapter = UserAdapter(this,userList)
         recv.layoutManager = LinearLayoutManager(this)
         recv.adapter = recyclerAdapter
 
@@ -59,8 +59,8 @@ class ShowListActivity : AppCompatActivity() {
         val json = pref.getString("UserDetails", null)
         if (json != null) {
             val type: Type = object : TypeToken<ArrayList<UserDetails?>?>() {}.type
-            userList1 = gson.fromJson<Any>(json, type) as ArrayList<UserDetails>
-            Log.d("size", "${userList1.size}")
+            userList = gson.fromJson<Any>(json, type) as ArrayList<UserDetails>
+            Log.d("size", "${userList.size}")
             recyclerAdapter.notifyDataSetChanged()
         }
     }
