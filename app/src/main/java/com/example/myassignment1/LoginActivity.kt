@@ -77,8 +77,8 @@ class LoginActivity : AppCompatActivity() {
             }
 
             if (isValidLoginCreds) {
-                preferenceManager.setLogin(true)
-                preferenceManager.setUsername(username)
+                preferenceManager.putBoolean(PrefConstants.IS_LOGIN, true)
+                preferenceManager.putString(username, username)
                 val intent = Intent(this, ShowListActivity::class.java)
                 startActivity(intent)
                 Toast.makeText(this, getString(R.string.login_successfully), Toast.LENGTH_SHORT)

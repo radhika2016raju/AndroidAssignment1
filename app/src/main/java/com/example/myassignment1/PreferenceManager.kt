@@ -2,46 +2,31 @@ package com.example.myassignment1
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.example.myassignmenttask.UserDetails
+import com.example.myassignment1.PrefConstants.IS_LOGIN
+import com.example.myassignment1.PrefConstants.PREF_NAME
+import com.example.myassignment1.PrefConstants.PRIVATE_MODE
 import com.google.gson.Gson
 
 
 class PreferenceManager(context: Context) {
-val PRIVATE_MODE=0
 
-        val pref: SharedPreferences = context.getSharedPreferences(PREF_NAME,PRIVATE_MODE)
-        val editor: SharedPreferences.Editor = pref.edit()
-        val gson = Gson()
+    val pref: SharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
+    val editor: SharedPreferences.Editor = pref.edit()
 
-
-        fun saveDetailsTopref(userList: ArrayList<UserDetails>) {
-            editor.putString("userList", gson.toJson(userList))
-            editor.apply()
-
-
-        }
-
-
-        fun setLogin(isLogin: Boolean) {
-            editor.putBoolean(IS_LOGIN, isLogin)
-            editor.apply()
-        }
-
-
-        fun setUsername(Username: String) {
-            editor.putString("username", Username)
-            editor.apply()
-        }
-
-        fun isLogin(): Boolean {
-            return pref.getBoolean(IS_LOGIN, false)
-        }
-
-        fun setUserList(userList: ArrayList<UserDetails>) {
-            editor.putString("Userlist", userList.toString())
-            editor.apply()
-        }
+    fun putBoolean(key: String, value: Boolean) {
+        pref.edit().putBoolean(key, value).apply()
     }
+
+    fun putString(key: String, value: String) {
+        pref.edit().putString(key, value).apply()
+    }
+
+
+    fun isLogin(): Boolean {
+        return pref.getBoolean(IS_LOGIN, false)
+    }
+
+}
 
 
 

@@ -9,22 +9,17 @@ import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myassignmenttask.UserDetails
 
-class UserAdapter(val context: Context, private val userList1: ArrayList<UserDetails>) :
+class UserAdapter() :
     RecyclerView.Adapter<UserAdapter.UserListViewHolder>() {
-    inner class UserListViewHolder(val v: View) : RecyclerView.ViewHolder(v) {
 
-        var userName: TextView
-        var userId: TextView
-        var emailId: TextView
-
-        init {
-
-            userName = v.findViewById(R.id.tv_UserName)
-            userId = v.findViewById(R.id.tv_id)
-            emailId = v.findViewById(R.id.tv_email_id)
+    var userList = ArrayList<UserDetails>()
 
 
-        }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserListViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        val v = inflater.inflate(R.layout.list_item, parent, false)
+        return UserListViewHolder(v)
+
     }
 
     override fun onBindViewHolder(holder: UserListViewHolder, position: Int) {
@@ -38,11 +33,13 @@ class UserAdapter(val context: Context, private val userList1: ArrayList<UserDet
         return userList.size
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserListViewHolder {
-        val inflater = LayoutInflater.from(parent.context)
-        val v = inflater.inflate(R.layout.list_item, parent, false)
-        return UserListViewHolder(v)
 
+    inner class UserListViewHolder(val v: View) : RecyclerView.ViewHolder(v) {
+
+        var userName: TextView = v.findViewById(R.id.tv_UserName)
+        var userId: TextView = v.findViewById(R.id.tv_id)
+        var emailId: TextView = v.findViewById(R.id.tv_email_id)
     }
+
 }
 
