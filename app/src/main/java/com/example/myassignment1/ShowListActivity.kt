@@ -25,7 +25,7 @@ class ShowListActivity : AppCompatActivity() {
     private lateinit var pref: SharedPreferences
     private lateinit var addsBtn: FloatingActionButton
     private lateinit var recv: RecyclerView
-    private lateinit var recyclerAdapter: UserAdapter
+    private lateinit var recyclerAdapter:UserAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
