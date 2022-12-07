@@ -9,7 +9,7 @@ import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myassignmenttask.UserDetails
 
-class UserAdapter(val context: Context, private val userList: ArrayList<UserDetails>) :
+class UserAdapter(val context: Context, private val userList1: ArrayList<UserDetails>) :
     RecyclerView.Adapter<UserAdapter.UserListViewHolder>() {
     inner class UserListViewHolder(val v: View) : RecyclerView.ViewHolder(v) {
 
