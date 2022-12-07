@@ -12,13 +12,11 @@ import com.google.gson.Gson
 
 class AddUserDetailsActivity : AppCompatActivity() {
     private lateinit var preferenceManager: PreferenceManager
-    lateinit var userList1: ArrayList<UserDetails>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.add_user_details)
 
-        userList1 = ArrayList()
         preferenceManager = PreferenceManager(this)
 
         val userName: EditText = findViewById(R.id.et_name)
@@ -63,8 +61,8 @@ class AddUserDetailsActivity : AppCompatActivity() {
                 getSharedPreferences(PREF_NAME, MODE_PRIVATE)
                 val editor = preferenceManager.editor
                 val gson = Gson()
-                userList1.add(UserDetails(id, names, email))
-                val json: String = gson.toJson(userList1)
+                userList.add(UserDetails(id, names, email))
+                val json: String = gson.toJson(userList)
                 editor.putString("UserDetails", json)
                 editor.apply()
 

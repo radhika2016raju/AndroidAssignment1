@@ -10,11 +10,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myassignmenttask.UserDetails
 
-class UserAdapter(val c:Context,val userList1:ArrayList<UserDetails>) :
+class UserAdapter(val c: Context, val userList1: ArrayList<UserDetails>) :
     RecyclerView.Adapter<UserAdapter.UserListViewHolder>() {
-
-   // var userList = ArrayList<UserDetails>()
-
 
     inner class UserListViewHolder(val v: View) : RecyclerView.ViewHolder(v) {
         var userName: TextView
@@ -35,16 +32,16 @@ class UserAdapter(val c:Context,val userList1:ArrayList<UserDetails>) :
             val v = LayoutInflater.from(c).inflate(R.layout.list_item, null)
 
             AlertDialog.Builder(c)
-                .setTitle("Delete")
-                .setMessage("Are you sure delete this Information")
-                .setPositiveButton("Yes") { dialog, _ ->
+                .setTitle(c.getString(R.string.delete))
+                .setMessage(c.getString(R.string.are_you_sure_delete_this_information))
+                .setPositiveButton(c.getString(R.string.yes)) { dialog, _ ->
                     userList.removeAt(adapterPosition)
                     notifyDataSetChanged()
-                    Toast.makeText(c, "Deleted this Information", Toast.LENGTH_SHORT)
+                    Toast.makeText(c, c.getString(R.string.information_deleted), Toast.LENGTH_SHORT)
                         .show()
                     dialog.dismiss()
                 }
-                .setNegativeButton("No") { dialog, _ ->
+                .setNegativeButton(c.getString(R.string.no)) { dialog, _ ->
                     dialog.dismiss()
                 }
                 .create()

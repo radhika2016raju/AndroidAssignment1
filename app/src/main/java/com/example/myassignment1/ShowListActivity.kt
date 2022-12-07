@@ -24,7 +24,6 @@ class ShowListActivity : AppCompatActivity() {
 
     private lateinit var preferenceManager: PreferenceManager
     private lateinit var addsBtn: FloatingActionButton
-   // lateinit var userList1: ArrayList<UserDetails>
     private lateinit var recv: RecyclerView
     private lateinit var recyclerAdapter: UserAdapter
 

@@ -31,6 +31,9 @@
     <string name="do_you_really_want_to_logout">Do you really want to Logout?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="delete">Delete</string>
+    <string name="information_deleted">Information deleted</string>
+    <string name="are_you_sure_delete_this_information">Are you sure delete this Information</string>
 
 
 </resources>
