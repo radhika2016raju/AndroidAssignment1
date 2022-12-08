@@ -1,12 +1,10 @@
 package com.example.myassignment1
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.myassignment1.PrefConstants.PREF_NAME
 import com.example.myassignmenttask.UserDetails
 import com.google.gson.Gson
 
@@ -58,15 +56,10 @@ class AddUserDetailsActivity : AppCompatActivity() {
             }
 
             if (isValid) {
-                getSharedPreferences(PREF_NAME, MODE_PRIVATE)
-                val editor = preferenceManager.editor
                 val gson = Gson()
                 userList.add(UserDetails(id, names, email))
                 val json: String = gson.toJson(userList)
-                editor.putString("UserDetails", json)
-                editor.apply()
-
-                Log.d(names, "username")
+                preferenceManager.putString(getString(R.string.user_details), json)
                 Toast.makeText(
                     this,
                     getString(R.string.adding_user_information_success),

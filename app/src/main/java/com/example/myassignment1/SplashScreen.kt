@@ -7,13 +7,24 @@ import android.os.Handler
 
 class SplashScreen : AppCompatActivity() {
 
+    private lateinit var preferenceManager: PreferenceManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
+        preferenceManager = PreferenceManager(this)
         Handler().postDelayed({
-            startActivity(Intent(this, LoginActivity::class.java))
-            finish()
+            if (preferenceManager.getBoolean() == true) {
+
+                startActivity(Intent(this, ShowListActivity::class.java))
+                finish()
+            } else {
+                startActivity(Intent(this, LoginActivity::class.java))
+
+            }
         }, SPLASH_TIME)
+
+
     }
 }
+

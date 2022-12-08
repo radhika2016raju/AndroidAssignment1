@@ -11,7 +11,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myassignment1.PrefConstants.PREF_NAME
 import com.example.myassignmenttask.UserDetails
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.gson.Gson
@@ -30,7 +29,7 @@ class ShowListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.show_user_list)
-        userList = ArrayList<UserDetails>()
+        userList = ArrayList()
         init()
         checkLogin()
         loadData()
@@ -53,9 +52,8 @@ class ShowListActivity : AppCompatActivity() {
     }
 
     private fun loadData() {
-        val pref = getSharedPreferences(PREF_NAME, MODE_PRIVATE)
         val gson = Gson()
-        val json = pref.getString("UserDetails", null)
+        val json=preferenceManager.getString("UserDetails")
         if (json != null) {
             val type: Type = object : TypeToken<ArrayList<UserDetails?>?>() {}.type
             userList = gson.fromJson<Any>(json, type) as ArrayList<UserDetails>
@@ -109,16 +107,13 @@ class ShowListActivity : AppCompatActivity() {
     }
 
     private fun checkLogin() {
-        if (!preferenceManager.isLogin()) {
+        if (!preferenceManager.getBoolean()) {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
         }
     }
 
-    override fun onStop() {
-        super.onStop()
-    }
 }
 
 

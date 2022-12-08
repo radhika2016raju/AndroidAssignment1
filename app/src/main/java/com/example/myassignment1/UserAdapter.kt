@@ -13,17 +13,17 @@ import com.example.myassignmenttask.UserDetails
 class UserAdapter(val c: Context, val userList1: ArrayList<UserDetails>) :
     RecyclerView.Adapter<UserAdapter.UserListViewHolder>() {
 
-    inner class UserListViewHolder(val v: View) : RecyclerView.ViewHolder(v) {
+    inner class UserListViewHolder( v: View) : RecyclerView.ViewHolder(v) {
         var userName: TextView
         var userId: TextView
         var emailId: TextView
-        var deleteUser: ImageView
+        private var deleteUser: ImageView
 
         init {
-            userName = v.findViewById<TextView>(R.id.tv_UserName)
-            userId = v.findViewById<TextView>(R.id.tv_id)
-            emailId = v.findViewById<TextView>(R.id.tv_email_id)
-            deleteUser = v.findViewById<ImageView>(R.id.delete_user)
+            userName = v.findViewById(R.id.tv_UserName)
+            userId = v.findViewById(R.id.tv_id)
+            emailId = v.findViewById(R.id.tv_email_id)
+            deleteUser = v.findViewById(R.id.delete_user)
             deleteUser.setOnClickListener { deleteUserInformation() }
         }
 
