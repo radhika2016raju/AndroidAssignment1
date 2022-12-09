@@ -9,9 +9,13 @@
     <string name="user_id">User Id</string>
     <string name="user_id2">User Id:</string>
     <string name="user_name">User Name</string>
-    <string name="user_name2">User Name:</string>
+    <string name="user_name2">User Name</string>
+    <string name="user_name12">User Name:</string>
+
     <string name="email">Email</string>
-    <string name="email2">Email:</string>
+    <string name="email2">Email</string>
+    <string name="email12">Email:</string>
+
     <string name="add">Add</string>
     <string name="add_user_details">Add User Details</string>
     <string name="please_enter_user_name">Please Enter Username</string>
@@ -31,6 +35,10 @@
     <string name="do_you_really_want_to_logout">Do you really want to Logout?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="delete">Delete</string>
+    <string name="information_deleted">Information deleted</string>
+    <string name="are_you_sure_delete_this_information">Are you sure delete this Information</string>
+    <string name="user_details">UserDetails</string>
 
 
 </resources>

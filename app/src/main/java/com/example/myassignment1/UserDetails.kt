@@ -1,4 +1,4 @@
-package com.example.myassignmenttask
+package com.example.myassignment1
 
 
 data class UserDetails internal constructor(

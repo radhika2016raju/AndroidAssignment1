@@ -32,7 +32,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun checkLogin() {
-        if (preferenceManager.isLogin()) {
+        if (preferenceManager.getBoolean()) {
             val intent = Intent(this, ShowListActivity::class.java)
             startActivity(intent)
             Toast.makeText(this, getString(R.string.login_successfully), Toast.LENGTH_SHORT)
@@ -42,7 +42,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    fun onClick() {
+    private fun onClick() {
 
         btnLogin.setOnClickListener {
             val username = etUsername.text.toString()
@@ -60,13 +60,13 @@ class LoginActivity : AppCompatActivity() {
                 isValidLoginCreds = false
             } else {
                 etUsername.error = null
-
             }
 
             if (TextUtils.isEmpty(password)) {
                 etPassword.error = getString(R.string.please_enter_password)
                 etPassword.requestFocus()
                 isValidLoginCreds = false
+
             } else if (password != PASSWORD) {
                 etPassword.error = getString(R.string.please_enter_valid_password)
                 etPassword.requestFocus()

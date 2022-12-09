@@ -11,8 +11,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myassignment1.PrefConstants.PREF_NAME
-import com.example.myassignmenttask.UserDetails
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -24,14 +22,13 @@ class ShowListActivity : AppCompatActivity() {
 
     private lateinit var preferenceManager: PreferenceManager
     private lateinit var addsBtn: FloatingActionButton
-    lateinit var userList1: ArrayList<UserDetails>
     private lateinit var recv: RecyclerView
     private lateinit var recyclerAdapter: UserAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.show_user_list)
-        userList1 = ArrayList<UserDetails>()
+        userList = ArrayList()
         init()
         checkLogin()
         loadData()
@@ -41,7 +38,7 @@ class ShowListActivity : AppCompatActivity() {
         preferenceManager = PreferenceManager(this)
         recv = findViewById(R.id.mRecycler)
         addsBtn = findViewById(R.id.addingBtn)
-        recyclerAdapter = UserAdapter()
+        recyclerAdapter = UserAdapter(this,userList)
         recv.layoutManager = LinearLayoutManager(this)
         recv.adapter = recyclerAdapter
 
@@ -54,13 +51,12 @@ class ShowListActivity : AppCompatActivity() {
     }
 
     private fun loadData() {
-        val pref = getSharedPreferences(PREF_NAME, MODE_PRIVATE)
         val gson = Gson()
-        val json = pref.getString("UserDetails", null)
+        val json=preferenceManager.getString("UserDetails")
         if (json != null) {
             val type: Type = object : TypeToken<ArrayList<UserDetails?>?>() {}.type
-            userList1 = gson.fromJson<Any>(json, type) as ArrayList<UserDetails>
-            Log.d("size", "${userList1.size}")
+            userList = gson.fromJson<Any>(json, type) as ArrayList<UserDetails>
+            Log.d("size", "${userList.size}")
             recyclerAdapter.notifyDataSetChanged()
         }
     }
@@ -104,22 +100,20 @@ class ShowListActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == 100) {
+        if (requestCode == RESULT_CODE_FOR_USER_DETAILS) {
             recyclerAdapter.notifyDataSetChanged()
         }
     }
 
     private fun checkLogin() {
-        if (!preferenceManager.isLogin()) {
+        if (!preferenceManager.getBoolean()) {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
         }
     }
 
-    override fun onStop() {
-        super.onStop()
-    }
+
 }
 
 

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/list_card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -49,11 +51,11 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginStart="@dimen/margin15"
                 android:ellipsize="end"
                 android:gravity="fill"
-                android:text="@string/user_name2"
+                android:text="@string/user_name12"
                 android:textSize="@dimen/text_size"
                 android:textStyle="bold" />
 
@@ -81,7 +83,7 @@
                 android:layout_marginStart="@dimen/margin15"
                 android:ellipsize="end"
                 android:gravity="fill"
-                android:text="@string/email2"
+                android:text="@string/email12"
                 android:textSize="@dimen/text_size"
                 android:textStyle="bold" />
 
@@ -96,6 +98,23 @@
                 android:textSize="@dimen/text_size"
                 android:textStyle="bold" />
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/delete_user"
+                    android:layout_width="@dimen/Image_width"
+                    android:layout_height="@dimen/Image_height"
+                    android:layout_marginStart="@dimen/image_margin_start"
+                    android:src="@drawable/ic_baseline_delete_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/black"
+                    tools:ignore="MissingConstraints" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
     </LinearLayout>
