@@ -5,7 +5,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.myassignmenttask.UserDetails
 import com.google.gson.Gson
 
 class AddUserDetailsActivity : AppCompatActivity() {
@@ -65,7 +64,7 @@ class AddUserDetailsActivity : AppCompatActivity() {
                     getString(R.string.adding_user_information_success),
                     Toast.LENGTH_SHORT
                 ).show()
-                setResult(100)
+                setResult(RESULT_CODE_FOR_USER_DETAILS)
                 finish()
 
             }

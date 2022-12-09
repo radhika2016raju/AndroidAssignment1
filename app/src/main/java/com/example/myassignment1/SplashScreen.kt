@@ -14,7 +14,7 @@ class SplashScreen : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
         preferenceManager = PreferenceManager(this)
         Handler().postDelayed({
-            if (preferenceManager.getBoolean() == true) {
+            if (preferenceManager.getBoolean()) {
 
                 startActivity(Intent(this, ShowListActivity::class.java))
                 finish()

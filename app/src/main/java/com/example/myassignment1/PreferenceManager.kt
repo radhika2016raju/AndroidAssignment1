@@ -8,7 +8,7 @@ import com.example.myassignment1.PrefConstants.PREF_NAME
 
 class PreferenceManager(context: Context) {
 
-    val pref: SharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
+    private val pref: SharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
     val editor: SharedPreferences.Editor = pref.edit()
 
 

@@ -11,7 +11,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myassignmenttask.UserDetails
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -101,7 +100,7 @@ class ShowListActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == 100) {
+        if (requestCode == RESULT_CODE_FOR_USER_DETAILS) {
             recyclerAdapter.notifyDataSetChanged()
         }
     }
@@ -113,6 +112,7 @@ class ShowListActivity : AppCompatActivity() {
             finish()
         }
     }
+
 
 }
 
